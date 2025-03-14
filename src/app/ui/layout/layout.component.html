@@ -1,1 +1,14 @@
-<p>layout works!</p>
+
+<div class="min-h-screen bg-gray-50/50">
+    <app-siderbar></app-siderbar>
+    
+    <div class="p-8 xl:ml-80">
+      <app-header></app-header>
+      <div class="mt-12">
+        <router-outlet/>
+      </div>
+     
+      <app-footer></app-footer>
+    </div>
+    
+  </div>
