@@ -12,4 +12,19 @@ export class LoginComponent {
     
   }
 
+  private setToken(){
+    console.log("seter")
+  }
+  
+  private getToken(){
+    console.log("seter")
+  }
+
+  isAuthenticad():any{
+
+  }
+
+ logout():void{
+  console.log("seter")
+  }
 }
