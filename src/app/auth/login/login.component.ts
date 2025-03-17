@@ -11,20 +11,4 @@ export class LoginComponent {
   constructor(private service:AuthService){
     
   }
-
-  private setToken(){
-    console.log("seter")
-  }
-  
-  private getToken(){
-    console.log("seter")
-  }
-
-  isAuthenticad():any{
-
-  }
-
- logout():void{
-  console.log("seter")
-  }
 }
