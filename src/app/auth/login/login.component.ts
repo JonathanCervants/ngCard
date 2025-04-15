@@ -8,7 +8,15 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  loginForm?: any
+
   constructor(private service:AuthService){
     
   }
 }
+
+
+/* Especificar el lenguaje al 
+DEVICE = ljet4
+
+*/
