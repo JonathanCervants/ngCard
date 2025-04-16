@@ -1,0 +1,14 @@
+.player{
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    .track{
+        padding: 20px;
+        margin: 5px 0;
+        background: rgba(0, 0, 0, 0.1);
+        cursor:pointer;
+    }
+    &:hover{
+        background: rgba(0, 0, 0, 0.2);
+    }
+}
