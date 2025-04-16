@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { AudioService } from '../services/audio.service';
 
 @Component({
   selector: 'app-player',
   imports: [],
   templateUrl: './player.component.html',
-  styleUrl: './player.component.css'
+  styleUrl: './player.component.css',
+  providers: [AudioService]
 })
 export class PlayerComponent {
-  constructor(public audio:AudioService){
-    console.log(audio.getTracks())
-  }
+  public songs = inject(AudioService);
+  protected isEnabled = true;
+  constructor(){
+    console.log(this.songs.getTracks())
+  } 
 
-  play(index:number){this.audio.playTrack(index)}
+  play(index:number){this.songs.playTrack(index)}
   
 }

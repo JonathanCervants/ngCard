@@ -1,8 +1,14 @@
-{{ audio.getTracks() }}
+{{songs.getTracks()}}
 <div class="player">
     <h2>Mix to Birthday</h2>
     <!-- <div @for 
-        song of audio.getTracks(); track song.title
-        class="track" (click)="play(song.title)" >  
+        song of songs; track song.title
+        class="track">
+        {{song.title}}
     </div> -->
 </div>
+ @if(isEnabled){
+    @for (item of songs.getTracks(); track item.title){
+    <h2>{{item.title}} - {{item.artist}}</h2>}
+    }
+

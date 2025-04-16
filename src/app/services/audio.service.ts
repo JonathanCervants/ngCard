@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Howl} from 'howler'
-@Injectable({providedIn: 'root'})
+
+@Injectable({
+  providedIn: 'root',
+})
 export class AudioService {
   private sound?: Howl;
   private tracks = [
@@ -17,10 +20,11 @@ export class AudioService {
   ]
 
   example =  [{id: 0, name: 'Sarah'}, {id: 1, name: 'Amy'}, {id: 2, name: 'Rachel'}, {id: 3, name: 'Jessica'}, {id: 4, name: 'Poornima'}]
-
+  public getTracks(){
+    return this.tracks;
+  }
   currentTrackIndex = 0
 
-  constructor(){console.log(this.example);}
   playTrack(index:number){
     this.sound = this.sound?.stop()
     this.currentTrackIndex = index;
@@ -31,6 +35,5 @@ export class AudioService {
     });
     this.sound.play();
   }
-  getTracks(){
-   return console.log(this.example) }
+  
 }
