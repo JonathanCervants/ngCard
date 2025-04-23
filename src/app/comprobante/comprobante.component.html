@@ -1,0 +1,8 @@
+<p>comprobante works!</p>
+<form>
+    <label for="name">Name:</label>
+    <input id="name" type="text" [formControl]="name">
+</form>
+    <button (click)="update()">Aver chamito</button>
+
+{{name.value}}

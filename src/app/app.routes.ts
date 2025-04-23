@@ -3,6 +3,7 @@ import  LayoutComponent  from './ui/layout/layout.component';
 import { DashboardComponent } from './ui/dashboard/dashboard.component';
 import { LoginComponent } from './auth/login/login.component';
 import { PlayerComponent } from './player/player.component';
+import { ComprobanteComponent } from './comprobante/comprobante.component';
 
 export const routes: Routes = [
     {
@@ -16,6 +17,9 @@ export const routes: Routes = [
     },
     {
         path:'login', loadComponent:()=>LoginComponent
+    },
+    {
+        path:'venta', loadComponent:()=>ComprobanteComponent
     },
     {
         path:'**',
