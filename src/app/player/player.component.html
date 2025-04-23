@@ -1,4 +1,3 @@
-{{songs.getTracks()}}
 <div class="player">
     <h2>Mix to Birthday</h2>
     <!-- <div @for 
@@ -6,9 +5,35 @@
         class="track">
         {{song.title}}
     </div> -->
-</div>
+</div>  
  @if(isEnabled){
     @for (item of songs.getTracks(); track item.title){
-    <h2>{{item.title}} - {{item.artist}}</h2>}
+    <div>{{item.title}} - {{item.artist}}</div>}
     }
-
+<!-- 
+    @Component
+    export class Component implements OnInit {
+        
+      private data$: Observable<PageData>;
+    
+      ngOnInit() {
+        
+        const user$ = // ... initialize user$ observable
+    
+        const course$  = // ... initialize course$ observable
+    
+        const lessons$ = // ... initialize lessons$ observable    
+        
+        this.data$ = combineLatest([user$, course$, lessons$])
+          .pipe(
+            map(([user, course, lessons]) => {
+              return {
+                    user, 
+                    course, 
+                    lessons
+                }
+            })
+        );
+      }
+        
+    } -->

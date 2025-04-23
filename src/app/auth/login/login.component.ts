@@ -11,7 +11,18 @@ export class LoginComponent {
   loginForm?: any
 
   constructor(private service:AuthService){
-    
+    ngOnInit:void{
+
+    }
+  }
+ 
+  onSubmit(){
+    // if(this.formLogin.valid){
+    //   capturo valores
+    //   if(){
+    //     llamo a la autenticacion
+    //   }
+    // }
   }
 }
 
