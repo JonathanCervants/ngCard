@@ -1,15 +1,20 @@
 <div class="container">
 	<div class="row justify-content-center mt-5">
-		<div></div>
-		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-		<div class="form-group">
-			<label for="username">Username</label>
-			<input type="text">xs
-			<input type="text">
-		</div>
-	</div>
-		<button></button>
+		<div>
+			<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+				<div class="form-group">
+					<label for="username">Username</label>
+					<input type="text" formControlName="username" class="border-2">
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="text" formControlName="password">
+				</div>
+				<button type="submit" [disabled]="formGroup.valid" class="border-purple-600 text-purple-700">Send plex</button>
 
-	</form>
-</div>
-</div>
+			</form>
+		</div>
+		
+	</div>
+	{{formGroup.status}}
+		{{formGroup.controls.username.value}}

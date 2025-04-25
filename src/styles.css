@@ -3,3 +3,6 @@
 @import "flowbite/src/themes/default";
 
 
+@body{
+    @apply bg-black;
+}
