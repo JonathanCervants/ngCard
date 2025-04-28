@@ -1,4 +1,22 @@
-<table>
+<div>
+    @switch(productState.state.status()){
+        @case("loading"){
+            <p>apait ytkn</p>
+        }
+        @case("error"){
+            <p>gloglo</p>
+        }
+        @default {
+            <div>
+                <button [type]="">
+                    Siguiente Página
+                </button>
+            </div>
+        }
+    }
+
+</div>
+<!-- <table>
     <thead *ngIf="productData != null">
         <tr>
             <th scope="col">Id</th>
@@ -17,4 +35,4 @@
             <td>{{product.category}}</td>
         </tr>
     </tbody>
-</table>
+</table> -->

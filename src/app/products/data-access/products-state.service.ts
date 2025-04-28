@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Product } from "../interfaces/product.interface";
 
-
-
 interface State{
   products: Product[]
   status: 'loading' | 'success' | 'error'
@@ -10,5 +8,15 @@ interface State{
 
 @Injectable()
 export class ProductsStateService{
-  
+  private initialState: State = {
+    this.subscribeb()
+  }
+
+  loadProducts = this.changePage$.pipe(
+
+  )
+
+  state = signalSlice({
+    
+  })
 }
