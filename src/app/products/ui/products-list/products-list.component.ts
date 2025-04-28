@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
+import { ProductsService } from '../../data-access/products.service';
+import { Product } from '../../interfaces/product.interface';
 
 @Component({
   selector: 'app-products-list',
   imports: [],
+  providers: [ProductsService],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent {
-  constructor(){
+  private productData : any ;
+  constructor( private productsService :ProductsService){
+    productsService.getProducts().subscribe(
+      console.log(this.productData)
 
+    )
   }
   ngOnInit():void{
     

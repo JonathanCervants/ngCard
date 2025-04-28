@@ -4,6 +4,7 @@ import { DashboardComponent } from './ui/dashboard/dashboard.component';
 import { LoginComponent } from './auth/login/login.component';
 import { PlayerComponent } from './player/player.component';
 import { ComprobanteComponent } from './comprobante/comprobante.component';
+import { ProductsListComponent } from './products/ui/products-list/products-list.component';
 
 export const routes: Routes = [
     {
@@ -22,8 +23,11 @@ export const routes: Routes = [
         path:'venta', loadComponent:()=>ComprobanteComponent
     },
     {
+        path:'products', loadComponent:()=>ProductsListComponent
+    },
+    {
         path:'**',
-        redirectTo:''
+        redirectTo:'/products'
     }
 ];
 
