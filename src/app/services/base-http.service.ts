@@ -1,9 +1,7 @@
 import { Inject, Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 @Injectable()
-export class ProductsService{
-  private http = Inject(HttpClient);
-  getProducts(){
-    
-  }
+export class BaseHttpService{
+  http = Inject(HttpClient);
+  apiUrl = enviroments.API_URL;
 }
