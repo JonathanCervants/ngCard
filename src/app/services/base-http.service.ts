@@ -1,7 +1,9 @@
-import { Inject, Injectable } from "@angular/core";
+import { Inject, inject, Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs/internal/Observable";
 @Injectable()
 export class BaseHttpService{
-  http = Inject(HttpClient);
-  apiUrl = "fake"
+  protected http = inject(HttpClient);
+  apiUrl = "https://fakestoreapi.com/products"
+
 }
