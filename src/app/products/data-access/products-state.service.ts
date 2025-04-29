@@ -1,37 +1,28 @@
-import { inject, Injectable } from "@angular/core";
+import { Injectable, signal } from "@angular/core";
 import { Product } from "../interfaces/product.interface";
-import { ProductsService } from "./products.service";
 
 interface State{
   products: Product[]
-  status: 'loading' | 'success' | 'error'
+  status: 'loading' | 'success' | 'error',
+  page:number
 }
 
 @Injectable()
 export class ProductsStateService{
-  private productService = inject(ProductsService)
   private initialState: State = {
-    products : [],
-    status:  'loading' as const
+    products:[],
+    status: 'loading' as const,
+    page: 1,
+
   }
 
+  state = signalSlice({})
+
+  loadProducts = this.changePage$.pipe(
+
+  )
+
   state = signalSlice({
-    initialState = this.initialState,
-    sources: [
-      this.productService.getProducts().pipe(map())
-    ]
+    
   })
 }
-
-// 
-// Se tiene que escalar usar api gateway
-// Implementar sistemas resilientes.
-// Monolitico -> Service Oriented -> Microservicios
-// Dependiendo un fallo podría afectar toda la aplicación, 
-// Comunicación de eventos, dependencia baja
-// Controllers C# ajustar carga para el inicio 
-// Jenkins: Pipelines, cypress, AudioListener
-// IC: preparar un release de Software ASAP
-// EC: automatizar el proceso de despliguege con interval. humana
-// DC: automatizar el respliguege continuo sin hinter humana.
-// Conceptos: Jobs.
