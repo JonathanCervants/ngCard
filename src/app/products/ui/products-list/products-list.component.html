@@ -36,3 +36,16 @@
         </tr>
     </tbody>
 </table> --> -->
+
+@switch(productState.state.status()){
+    @case('loading'){
+        <p>Loading...</p>
+    }@case('error'){
+        <p>Error: {{productState.state.error()}}</p>
+    }@default{
+        @for(product of productState.state().products; track product.id){
+            <!-- <p>{{product.title}}</p> -->
+            <app-product-card [product]=product></app-product-card>
+        }
+    }
+}

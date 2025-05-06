@@ -8,7 +8,7 @@ import { ProductsListComponent } from './products/ui/products-list/products-list
 
 export const routes: Routes = [
     {
-        path:'', loadComponent:()=>PlayerComponent,
+        path:'', loadComponent:()=>ProductsListComponent,
         children:[
         {
             path:'dashboard', loadComponent:()=>DashboardComponent,
