@@ -37,15 +37,21 @@
     </tbody>
 </table> --> -->
 
-@switch(productState.state.status()){
+<!-- @switch(productState.state.status()){
     @case('loading'){
         <p>Loading...</p>
     }@case('error'){
-        <p>Error: {{productState.state.error()}}</p>
+        <p>Error: {{productState.state.status()}}</p>
     }@default{
-        @for(product of productState.state().products; track product.id){
-            <!-- <p>{{product.title}}</p> -->
-            <app-product-card [product]=product></app-product-card>
-        }
+        <button type="button" (click)="productState" 
+        class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Ver más
+       </button>
+       <div class="grid grid-cols-[repeat(4,300px)]">      
+            @for(product of productState.state().products; track product.id){
+                <app-product-card [product]="product"></app-product-card>      
+            }
+       </div>
     }
-}
+} -->
+
+<!-- Set-ExecutionPolicy -ExecutionPolicy AllSigned -Scope CurrentUser -->

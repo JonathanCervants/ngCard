@@ -3,6 +3,8 @@ import { ProductsService } from '../../data-access/products.service';
 import { Product } from '../../interfaces/product.interface';
 import { ProductsStateService } from '../../data-access/products-state.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { Subject } from 'rxjs';
+
 
 @Component({
   selector: 'app-products-list',
@@ -13,7 +15,21 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 })
 export class ProductsListComponent {
   productState = inject(ProductsStateService) 
+  
 }
+
+  const subject = new Subject<number>()
+  subject.subscribe({
+    next: (v) => console.log(`observer: ${v}`)
+  })
+
+  subject.subscribe({
+    next:(v) => console.log('hello moto')
+  })
+
+  console.log(subject.subscribe())
+
+
 
 // libro diario, cuentas contables, debe y haber
 // If(Procesar programacion)
