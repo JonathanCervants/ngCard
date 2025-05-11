@@ -1,9 +1,9 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, Inject, inject, signal } from '@angular/core';
 import { ProductsService } from '../../data-access/products.service';
 import { Product } from '../../interfaces/product.interface';
 import { ProductsStateService } from '../../data-access/products-state.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { Subject } from 'rxjs';
+import { count, Subject } from 'rxjs';
 
 
 @Component({
@@ -13,11 +13,14 @@ import { Subject } from 'rxjs';
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css'
 })
-export class ProductsListComponent {
-  productState = inject(ProductsStateService) 
-  
-}
 
+export class ProductsListComponent {
+    productState = inject(ProductsStateService) 
+}
+const num = signal(0)
+// Increment the count by 1.
+num.update(value => value + 1);
+console.log(num)
   const subject = new Subject<number>()
   subject.subscribe({
     next: (v) => console.log(`observer: ${v}`)

@@ -10,16 +10,7 @@ interface ProductState{
   state:any
 }
 
-  const subject = new Subject<number>()
-  subject.subscribe({
-    next: (v) => console.log(`observer: ${v}`)
-  })
 
-  subject.subscribe({
-    next:(v) => console.log('hello moto')
-  })
-
-  subject.subscribe
 
   export class ProductsStateService extends ProductsService{
 
