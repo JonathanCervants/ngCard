@@ -1,4 +1,4 @@
-import { Component, Inject, inject, signal } from '@angular/core';
+import { Component, Inject, Injector, Signal, WritableSignal, computed, effect, inject, signal } from '@angular/core';
 import { ProductsService } from '../../data-access/products.service';
 import { Product } from '../../interfaces/product.interface';
 import { ProductsStateService } from '../../data-access/products-state.service';
@@ -16,24 +16,42 @@ import { count, Subject } from 'rxjs';
 
 export class ProductsListComponent {
     productState = inject(ProductsStateService) 
-}
-const num = signal(0)
-// Increment the count by 1.
-num.update(value => value + 1);
-console.log(num)
-  const subject = new Subject<number>()
-  subject.subscribe({
-    next: (v) => console.log(`observer: ${v}`)
-  })
-
-  subject.subscribe({
-    next:(v) => console.log('hello moto')
-  })
-
-  console.log(subject.subscribe())
+    readonly count = signal(0)
+    private inject = inject(Injector)
+    initializeLogng (): void{
+      effect(()=>{
+       console.log(this.count())
+      },
+      {injector: this.inject}
+    )
+    }
+    ngOnInit(){
+      this.initializeLogng()
+    } 
+  }
 
 
+// const num :WritableSignal<number> = signal(0)
+// // Increment the count by 1.
+// num.update(value => value + 4);3
+// console.log(num())
+// const doubleCount: Signal<number> = computed(() => num() * 85858585);
+// console.log(doubleCount())
+// const señal = signal(true)
+// if(!señal()){
+//   console.error("wwwaaaaa")
+// }
+// console.log(doubleCount())
+  // const subject = new Subject<number>()
+  // subject.subscribe({
+  //   next: (v) => console.log(`observer: ${v}`)
+  // })
 
+  // subject.subscribe({
+  //   next:(v) => console.log('hello moto')
+  // })
+
+  // console.log(subject.subscribe)
 // libro diario, cuentas contables, debe y haber
 // If(Procesar programacion)
 // Formula de cálculo de provisión, 
