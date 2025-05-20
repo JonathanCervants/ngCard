@@ -14,6 +14,7 @@ interface ProductState{
 })
 export class ProductsStateService extends ProductsService {
   
+  // computation: ()=> TSignal
   initialState! : ProductState;
   productService = inject(ProductsService)
   sourceList = this.productService.getProducts(pipe(map(
