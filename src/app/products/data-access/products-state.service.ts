@@ -1,7 +1,7 @@
 import { inject, Injectable, signal } from "@angular/core";
 import { Product } from "../interfaces/product.interface";
 import {SignalSlice, signalSlice} from 'ngxtension/signal-slice';
-import { catchError, map, observable, of, startWith, Subject, switchMap } from "rxjs";
+import { catchError, map, observable, of, pipe, startWith, Subject, switchMap } from "rxjs";
 import { ProductsService } from "./products.service";
 
 interface ProductState{
@@ -16,7 +16,9 @@ export class ProductsStateService extends ProductsService {
   
   initialState! : ProductState;
   productService = inject(ProductsService)
-  sourceList = this.productService.getProducts
+  sourceList = this.productService.getProducts(pipe(map(
+    {products = products , status as const }
+  )))
   
   state = signalSlice({
     initialState: this.initialState,
