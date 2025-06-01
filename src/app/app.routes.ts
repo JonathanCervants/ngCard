@@ -8,13 +8,14 @@ import { ProductsListComponent } from './products/ui/products-list/products-list
 
 export const routes: Routes = [
     {
-        path:'', loadComponent:()=>ProductsListComponent,
-        children:[
-        {
-            path:'dashboard', loadComponent:()=>DashboardComponent,
+        path:'products',
+         loadChildren:()=>import('./products/data-features/products-routes')
+        // children:[
+        // {
+        //     path:'dashboard', loadComponent:()=>DashboardComponent,
 
-        }
-        ]
+        // }
+        // ]
     },
     {
         path:'login', loadComponent:()=>LoginComponent

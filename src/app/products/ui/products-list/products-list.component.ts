@@ -25,8 +25,11 @@ export class ProductsListComponent {
       {injector: this.inject}
     )
     }
-    ngOnInit(){
-      this.initializeLogng()
+    constructor(){
+      this.initializeLogng(),
+      console.log(this.productState.state())
+      console.log("xdd")
+
     } 
   }
 
