@@ -8,11 +8,7 @@ import { Observable } from "rxjs";
 export class ProductsService extends BaseHttpService{
   LIMIT:number = 5;
   getProducts(page:number) : Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.apiUrl}`, {
-      params:{
-        limit : this.LIMIT*page
-      }
-    })
+    return this.http.get<Product[]>(`${this.apiUrl}`)
   }
 }
 
