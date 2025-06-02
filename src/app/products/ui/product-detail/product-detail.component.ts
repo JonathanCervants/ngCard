@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })
-export class ProductDetailComponent {
+export  class ProductDetailComponent {
   // id = input.required<string>();
   // constructor(){
   //   effect(()=>{
@@ -20,6 +20,7 @@ export class ProductDetailComponent {
   id = input.required<string>()
 
   constructor(){
+    console.log(this.id)
     effect(()=>{
       this.productDetailState.getById(this.id())
     })
