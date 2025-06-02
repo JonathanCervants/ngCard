@@ -27,7 +27,10 @@ export class ProductsListComponent {
       console.log("Genesis")
     } 
     addPage(){
-      this.page =+ 1
+      this.productState.changePipe.next(2)
+      // this.page = this.page+5  
+      // console.log(this.productState.LIMIT=10)
+      // console.log(this.productState.state());
     }
   }
 // const num :WritableSignal<number> = signal(0)

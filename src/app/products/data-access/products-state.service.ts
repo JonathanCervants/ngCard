@@ -11,17 +11,22 @@ interface ProductState{
 @Injectable({
   providedIn:'root'
 })
+
 export class ProductsStateService extends ProductsService {
-  
+
   private dfd = inject(ProductsService)
   // computation: ()=> TSignal return Signal<T>
   private initialState : ProductState = {
     products: [],
     status :'loading' as const,
   };
-
+  
   changePipe = new Subject<number>()
-
+  // addPage(){
+  //  page = page +5
+    // this.page = this.page+5
+    // console.log(this.productState.LIMIT=10)
+    // console.log(this.productState.state());
   loadProducts = this.changePipe.pipe(
     startWith(1),
     switchMap((page)=> this.dfd.getProducts(page)),
@@ -44,8 +49,6 @@ export class ProductsStateService extends ProductsService {
       ],
   });
 }
-
-
   // productService = inject(ProductsService)
   
   
