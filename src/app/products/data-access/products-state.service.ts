@@ -24,22 +24,24 @@ export class ProductsStateService extends ProductsService {
 
   loadProducts = this.changePipe.pipe(
     startWith(1),
-    switchMap((page)),
-    map(),
-    catchError(
-
-    )
+    switchMap((page)=> this.dfd.getProducts(page)),
+    map((products)=>({products, status:'success' as const})),
+    catchError(()=> {
+      return of({
+        products:[],
+        status: 'error' as const
+      })
+    })
   )
 
   state = signalSlice({
     initialState: this.initialState,
     sources: [
       this.changePipe.pipe(
-        (page) => page * 
-      )
-      .getProducts(5)
-      .pipe(map((products) =>({products, status:'success' as const}))),
-    ],
+        map((page) => ({page, status:'loading' as const}))
+      ),
+      this.loadProducts
+      ],
   });
 }
 

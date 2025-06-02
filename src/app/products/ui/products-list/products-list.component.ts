@@ -1,10 +1,6 @@
 import { Component, Inject, Injector, Signal, WritableSignal, computed, effect, inject, signal } from '@angular/core';
-import { ProductsService } from '../../data-access/products.service';
-import { Product } from '../../interfaces/product.interface';
 import { ProductsStateService } from '../../data-access/products-state.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { count, Subject } from 'rxjs';
-
 
 @Component({
   selector: 'app-products-list',
@@ -15,25 +11,25 @@ import { count, Subject } from 'rxjs';
 })
 
 export class ProductsListComponent {
-    productState = inject(ProductsStateService) 
-    readonly count = signal(0)
-    private inject = inject(Injector)
-    initializeLogng (): void{
-      effect(()=>{
-       console.log(this.count())
-      },
-      {injector: this.inject}
-    )
-    }
-    constructor(){
-      this.initializeLogng(),
+  page:number = 1 
+  productState = inject(ProductsStateService) 
+    // readonly count = signal(0)
+    // private inject = inject(Injector)
+    // initializeLogng (): void{
+    //   effect(()=>{
+    //    console.log(this.count())
+    //   },
+    //   {injector: this.inject}
+    // )
+    // }   
+    constructor(){      
       console.log(this.productState.state())
-      console.log("xdd")
-
+      console.log("Genesis")
     } 
+    addPage(){
+      this.page =+ 1
+    }
   }
-
-
 // const num :WritableSignal<number> = signal(0)
 // // Increment the count by 1.
 // num.update(value => value + 4);3
