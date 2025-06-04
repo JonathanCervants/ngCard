@@ -24,9 +24,6 @@ export const routes: Routes = [
         path:'venta', loadComponent:()=>ComprobanteComponent
     },
     {
-        path:'products', loadComponent:()=>ProductsListComponent
-    },
-    {
         path:'**',
         redirectTo:'/products'
     }

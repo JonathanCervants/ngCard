@@ -15,10 +15,22 @@ export class ProductsService extends BaseHttpService{
   }
 
   getProduct(id:string) : Observable<Product>{
-    return this.http.get<Product>(`${this.apiUrl}/product/${id}`)
+    return this.http.get<Product>(`${this.apiUrl}/${id}`)
   }
 
 }
 // http.get('/images/dog.jpg', {responseType: 'arraybuffer'}).subscribe(buffer => {
 //   console.log('The image is ' + buffer.byteLength + ' bytes large');
 // });
+
+// # _FullyTax.ps1_
+// # Possible values: 'Minor', 'Adult', 'Senior Citizen'
+// $Status = 'Minor'
+// If ($Status -eq 'Minor') 
+// {
+//   Write-Host $False
+// } ElseIf ($Status -eq 'Adult') {
+//   Write-Host $True
+// } Else {
+//   Write-Host $False
+// }

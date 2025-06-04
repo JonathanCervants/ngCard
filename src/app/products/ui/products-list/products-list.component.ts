@@ -27,7 +27,8 @@ export class ProductsListComponent {
       console.log("Genesis")
     } 
     addPage(){
-      this.productState.changePipe.next(2)
+      this.page+=1
+      this.productState.changePipe.next(this.page)
       // this.page = this.page+5  
       // console.log(this.productState.LIMIT=10)
       // console.log(this.productState.state());

@@ -2,7 +2,7 @@
     <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
             <img
-             [src]="productDetailState.product()?.image" 
+             [src]="productDetailState.product()" 
              alt="" 
              class="w-full dark:hidden">    
         </div>
@@ -10,6 +10,9 @@
             <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">
                 {{productDetailState.product()?.title}}
             </h1>
+            <picture>
+                <img class="rounded-t-lg h-60 w-full object-contain object-center" [src]="productDetailState.product()?.image" alt="" />
+            </picture>
             <div class="mt-4 sm:items-center sm:gap-4 sm:flex">
                 <p class="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white">
                     {{productDetailState.product()?.price | currency}}
